@@ -10,6 +10,9 @@
     
     const API_KEY = process.env.API_KEY;
     const CLIENT_ID = process.env.CLIENT_ID;
+
+    console.log(API_KEY)
+    console.log(CLIENT_ID)
   
     const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
     const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', "https://mail.google.com/", "https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/gmail.settings.basic"];
