@@ -8,25 +8,9 @@
     let yesButtonElement = document.getElementById("yes_button");
     let noButtonElement = document.getElementById("no_button");
     
-    let API_KEY;
-    let CLIENT_ID;
-    
-    fetch('env_vars.json')
-      .then(response => response.json())
-      .then(data => {
-        Object.keys(data).forEach(key => {
-          if (key === 'API_KEY') {
-            API_KEY = data[key];
-          } else if (key === 'CLIENT_ID') {
-            CLIENT_ID = data[key];
-          }
-        });
-        // Do something with API_KEY and CLIENT_ID here
-      });
-    
-    
-    
-    
+    const API_KEY = process.env.API_KEY;
+    const CLIENT_ID = process.env.CLIENT_ID;
+  
     const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
     const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', "https://mail.google.com/", "https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/gmail.settings.basic"];
     
