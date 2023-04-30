@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>University Email Deleter</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="env_vars.json"></script>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <div class="centered">
+    <h1>University Email Deleter</h1>
+    <!--Add buttons to initiate auth sequence and sign out-->
+    
+    <div class="centered">
+      <button id="authorize_button" class="button-37"onclick="handleAuthClick()">Authorize</button>
+      <button id="signout_button" class="button-24" onclick="handleSignoutClick()">Sign Out</button>
+    </div>
+    
+    <p id="college_name"></p>
+    
+    <div class="confirmation">
+      <button id="yes_button" class="button-33" role="button">Yes</button>
+      
+      <button id="no_button" class="button-45" role="button">No</button>
+    </div>
+    
+    <!-- center div -->
+    <div class="center">
+      <div class="center-content">
+        <p id="center_text"></p>
+      </div>
+      <button id="delete" class="button-24" onclick="deleteEmails()">Delete Emails</button>
+      
+    </div>
+    
+    <div class="confirmation">
+      <button id="create-label" class="button-37" onclick="createLabel()">Create Label</button>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+      <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel1()">Move Emails 1</button>
+      <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel2()">Move Emails 2</button>
+      <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel3()">Move Emails 3</button>
+      
+    </div>
+
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+    </div>
+    <script src="app.js"></script>
+    <script src="email-move.js"></script>
+    <script src="labels.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  </body>
+  </html>
