@@ -3,7 +3,6 @@ function createLabel() {
         'name': 'University Test'
     };
     
-    
     gapi.client.gmail.users.labels.create({
         'userId': 'me',
         'resource': label
