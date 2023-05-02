@@ -1,7 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+require('dotenv').config();
 
-let mainLabelList = [];
 let sendersList = [];
 let gmailClient;
 let keepList = [];

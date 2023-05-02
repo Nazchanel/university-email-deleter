@@ -1,5 +1,6 @@
 const express = require('express');
 const favicon = require('serve-favicon');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
