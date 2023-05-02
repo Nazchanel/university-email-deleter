@@ -6,7 +6,11 @@
   "scripts": {
     "start": "npm server.js",
     "dev": "nodemon server.js",
-    "build": "node server.js"
+    "build": "npm run clean && npm run build-js && npm run build-css && npm run copy-files",
+    "clean": "rm -rf dist && mkdir dist",
+    "build-js": "echo 'Compile JavaScript code here'",
+    "build-css": "echo 'Minify CSS files here'",
+    "copy-files": "cp -r public dist/public && cp favicon.ico dist/ && cp index.html dist/"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
