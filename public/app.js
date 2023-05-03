@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 let sendersList = [];
 let gmailClient;
 let keepList = [];
@@ -9,11 +7,25 @@ let collegeNameElement = document.getElementById("college_name");
 let yesButtonElement = document.getElementById("yes_button");
 let noButtonElement = document.getElementById("no_button");
 
-const API_KEY = process.env.API_KEY;
-const CLIENT_ID = process.env.CLIENT_ID;
+let API_KEY;
+let CLIENT_ID;
 
-console.log(API_KEY)
-console.log(CLIENT_ID)
+fetch('/api-key')
+  .then(response => response.text())
+  .then(apiKey => {
+    API_KEY = apiKey;
+    console.log(API_KEY); // move this inside the then() block
+  })
+  .catch(error => console.error(error));
+
+fetch('/client-id')
+  .then(response => response.text())
+  .then(clientID => {
+    CLIENT_ID = clientID;
+    console.log(CLIENT_ID); // move this inside the then() block
+  })
+  .catch(error => console.error(error));
+
 
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', "https://mail.google.com/", "https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/gmail.settings.basic"];
@@ -21,6 +33,7 @@ const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', "https://mail.
 let tokenClient;
 let gapiInited = false;
 let gisInited = false;
+
 
 document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
