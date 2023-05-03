@@ -11,18 +11,18 @@ let API_KEY;
 let CLIENT_ID;
 
 fetch('/api-key')
-  .then(response => response.text())
-  .then(apiKey => {
-    API_KEY = apiKey;
-  })
-  .catch(error => console.error(error));
+.then(response => response.text())
+.then(apiKey => {
+  API_KEY = apiKey;
+})
+.catch(error => console.error(error));
 
 fetch('/client-id')
-  .then(response => response.text())
-  .then(clientID => {
-    CLIENT_ID = clientID;
-  })
-  .catch(error => console.error(error));
+.then(response => response.text())
+.then(clientID => {
+  CLIENT_ID = clientID;
+})
+.catch(error => console.error(error));
 
 
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest';
@@ -45,8 +45,8 @@ const labelName = 'University Test';
 */
 function gapiLoaded() {
   gapi.load('client', initializeGapiClient);
-
-
+  
+  
   // Get the Gmail API client object
 }
 
@@ -61,7 +61,7 @@ async function initializeGapiClient() {
   });
   gapiInited = true;
   gmailClient = gapi.client.gmail;
-
+  
   maybeEnableButtons();
 }
 
@@ -100,14 +100,14 @@ async function handleAuthClick() {
     }
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('authorize_button').innerText = 'Refresh';
-
+    
     listSenders();
     setTimeout(() => { displayCollegeName(); }, 5000);
-
-
+    
+    
   };
-
-
+  
+  
   if (gapi.client.getToken() === null) {
     // Prompt the user to select a Google Account and ask for consent to share their data
     // when establishing a new session.
@@ -116,7 +116,7 @@ async function handleAuthClick() {
     // Skip display of account chooser and consent dialog for an existing session.
     tokenClient.requestAccessToken({prompt: ''});
   }
-
+  
 }
 
 /**
@@ -140,7 +140,7 @@ function listSenders() {
   gapi.client.load('gmail', 'v1', function() {
     // Use the "University" label as an example
     var labelName = "Career/University";
-
+    
     // Get the label ID for the given label name
     var request = gapi.client.gmail.users.labels.list({
       userId: 'me'
@@ -153,7 +153,7 @@ function listSenders() {
           break;
         }
       }
-
+      
       // Get the messages with the given label ID
       var request = gapi.client.gmail.users.messages.list({
         userId: 'me',
@@ -170,12 +170,12 @@ function listSenders() {
             var headers = response.payload.headers;
             for (var j = 0; j < headers.length; j++) {
               if (headers[j].name == "From") {
-
+                
                 sendersList.push(headers[j].value)
                 console.log(headers[j].value);
-
+                
                 sendersList = [...new Set(sendersList)];
-
+                
                 break;
               }
             }
@@ -241,7 +241,7 @@ function deleteEmails() {
           const ids = Object.keys(idMap);
           console.log(ids);
           console.log(messages);
-
+          
           const batch = gapi.client.newBatch();
           ids.forEach(function(id) {
             batch.add(gapi.client.gmail.users.messages.batchDelete({
@@ -252,7 +252,7 @@ function deleteEmails() {
           batch.execute(function() {
             console.log(`All messages from ${deleteList} have been deleted.`);
           });
-
+          
         });
       });
     });
