@@ -259,6 +259,8 @@ function deleteEmails() {
   });
 }
 gapiLoaded()
+initializeGapiClient()
+gisLoaded()
 
 yesButtonElement.addEventListener("click", addToKeepList);
 noButtonElement.addEventListener("click", addToDeleteList);
