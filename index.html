@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>University Email Deleter</title>
-  <link rel="stylesheet" type="text/css" href="/public/style.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
   <meta charset="utf-8" />
 </head>
 <body>
@@ -40,14 +41,15 @@
       <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel1()">Move Emails 1</button>
       <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel2()">Move Emails 2</button>
       <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel3()">Move Emails 3</button>
+      <button style="margin: 0px 10px;" id="create-filter" class="button-37" onclick="moveEmailsToLabel4()">Move Emails 3</button>
       
     </div>
     
     <pre id="content" style="white-space: pre-wrap;"></pre>
   </div>
-  <script src="/public/app.js"></script>
-  <script src="/public/email-move.js"></script>
-  <script src="/public/labels.js"></script>
+  <script src="/app.js"></script>
+  <script src="/email-move.js"></script>
+  <script src="/labels.js"></script>
   <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
   <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </body>

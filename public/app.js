@@ -14,7 +14,6 @@ fetch('/api-key')
   .then(response => response.text())
   .then(apiKey => {
     API_KEY = apiKey;
-    console.log(API_KEY); // move this inside the then() block
   })
   .catch(error => console.error(error));
 
@@ -22,7 +21,6 @@ fetch('/client-id')
   .then(response => response.text())
   .then(clientID => {
     CLIENT_ID = clientID;
-    console.log(CLIENT_ID); // move this inside the then() block
   })
   .catch(error => console.error(error));
 
