@@ -33,7 +33,7 @@ let gapiInited = false;
 let gisInited = false;
 
 
-document.getElementById('authorize_button').style.visibility = 'hidden';
+// document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
 
 var currentLabelID = "Label_1";
@@ -258,6 +258,7 @@ function deleteEmails() {
     });
   });
 }
+gapiLoaded()
 
 yesButtonElement.addEventListener("click", addToKeepList);
 noButtonElement.addEventListener("click", addToDeleteList);
